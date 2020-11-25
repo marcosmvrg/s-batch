@@ -18,7 +18,7 @@ import org.springframework.context.annotation.Configuration;
 
 @EnableBatchProcessing
 @Configuration
-public class FirstJob {
+public class FirstBatch {
 
 	@Autowired
 	private JobBuilderFactory jobBuilderFactory;
