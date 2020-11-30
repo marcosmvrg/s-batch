@@ -14,7 +14,7 @@ public class ImprimeOlaStepConfig {
 	private StepBuilderFactory stepBuilderFactory;
 
 	@Bean
-	public Step printHelloWorld(Tasklet imprimeOlaTasklet) {
+	public Step imprimeOlaStep(Tasklet imprimeOlaTasklet) {
 		return stepBuilderFactory
 				.get("imprimeOlaStep")
 				.tasklet(imprimeOlaTasklet)
