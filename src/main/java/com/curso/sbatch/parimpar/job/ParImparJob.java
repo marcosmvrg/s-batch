@@ -1,4 +1,4 @@
-package com.curso.sbatch.jobs;
+package com.curso.sbatch.parimpar.job;
 
 import java.util.Arrays;
 import java.util.List;
@@ -21,7 +21,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @EnableBatchProcessing
-public class ParImparBatch {
+public class ParImparJob {
 
 	@Autowired
 	private JobBuilderFactory jobBuilderFactory;
