@@ -1,4 +1,4 @@
-package com.curso.sbatch.arquivolargurafixa.step;
+package com.curso.sbatch.arquivodelimitado.step;
 
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
@@ -11,20 +11,20 @@ import org.springframework.context.annotation.Configuration;
 import com.curso.sbatch.arquivolargurafixa.dominio.Cliente;
 
 @Configuration
-public class LeituraArquivoLarguraFixaStepConfig {
+public class LeituraArquivoDelimitadoStepConfig {
 
 	@Autowired
 	public StepBuilderFactory stepBuilderFactory;
 
 	@Bean
-	public Step leituraArquivoLarguraFixaStep(ItemReader<Cliente> leituraArquivoLarguraFixaReader,
-			ItemWriter<Cliente> leituraArquivoLarguraFixaWriter) {
+	public Step leituraArquivoDelimitadoStep(ItemReader<Cliente> leituraArquivoDelimitadoReader,
+			ItemWriter<Cliente> leituraArquivoDelimitadoWriter) {
 
 		return stepBuilderFactory
-				.get("leituraArquivoLarguraFixaStep")
+				.get("leituraArquivoDelimitadoStep")
 				.<Cliente, Cliente>chunk(1)
-				.reader(leituraArquivoLarguraFixaReader)
-				.writer(leituraArquivoLarguraFixaWriter)
+				.reader(leituraArquivoDelimitadoReader)
+				.writer(leituraArquivoDelimitadoWriter)
 				.build();
 	}
 
