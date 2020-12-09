@@ -1,15 +1,15 @@
-package com.curso.sbatch.arquivodelimitado.writer;
+package com.curso.sbatch.arquivomultiplosformatos.writer;
 
 import org.springframework.batch.item.ItemWriter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.curso.sbatch.dominio.Cliente;
-
 @Configuration
-public class LeituraArquivoDelimitadoWriterConfig {
+public class LeituraArquivoMultiplosFormatosWriterConfig {
+	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Bean
-	public ItemWriter<Cliente> leituraArquivoDelimitadoWriter() {
+	public ItemWriter leituraArquivoMultiplosFormatosWriter() {
 		return items -> items.forEach(System.out::println);
 	}
 }

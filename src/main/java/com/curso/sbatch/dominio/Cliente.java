@@ -1,4 +1,4 @@
-package com.curso.sbatch.arquivolargurafixa.dominio;
+package com.curso.sbatch.dominio;
 
 public class Cliente {
 
