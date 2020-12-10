@@ -8,11 +8,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import com.curso.sbatch.arquivomultiplosformatos.reader.ArquivoClienteTransacaoReader;
+
 @Configuration
 public class LeituraArquivoMultiplosFormatosStepConfig {
 	@Autowired
 	public StepBuilderFactory stepBuilderFactory;
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Bean
 	public Step leituraArquivoMultiplosFormatosStep(
 			FlatFileItemReader arquivoMultiplosFormatosItemReader,
@@ -20,7 +23,7 @@ public class LeituraArquivoMultiplosFormatosStepConfig {
 		return stepBuilderFactory
 				.get("leituraArquivoMultiplosFormatosStep")
 				.chunk(1)
-				.reader(arquivoMultiplosFormatosItemReader)
+				.reader(new ArquivoClienteTransacaoReader(arquivoMultiplosFormatosItemReader))
 				.writer(leituraArquivoMultiplosFormatosWriter)
 				.build();
 	}

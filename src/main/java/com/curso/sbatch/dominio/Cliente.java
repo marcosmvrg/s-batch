@@ -1,14 +1,18 @@
 package com.curso.sbatch.dominio;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Cliente {
 
 	private String nome;
 	private String sobreNome;
 	private Integer idade;
 	private String email;
+	private List<Transacao> transacoes = new ArrayList<Transacao>();
 
 	public Cliente() {
-		super();
+		super();		
 	}
 
 	public Cliente(String nome, String sobreNome, Integer idade, String email) {
@@ -16,7 +20,7 @@ public class Cliente {
 		this.nome = nome;
 		this.sobreNome = sobreNome;
 		this.idade = idade;
-		this.email = email;
+		this.email = email;		
 	}
 
 	public String getNome() {
@@ -50,6 +54,14 @@ public class Cliente {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+		
+	public void setTransacoes(List<Transacao> transacoes) {
+		this.transacoes = transacoes;
+	}
+	
+	public List<Transacao> getTransacoes() {
+		return transacoes;
+	}
 
 	@Override
 	public String toString() {
@@ -62,6 +74,7 @@ public class Cliente {
 		builder.append(idade);
 		builder.append(", email=");
 		builder.append(email);
+		builder.append(transacoes.isEmpty() ? "": ", transacoes="+transacoes);
 		builder.append("]");
 		return builder.toString();
 	}
