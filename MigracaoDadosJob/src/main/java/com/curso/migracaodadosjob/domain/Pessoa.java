@@ -2,6 +2,8 @@ package com.curso.migracaodadosjob.domain;
 
 import java.util.Date;
 
+import org.apache.logging.log4j.util.Strings;
+
 public class Pessoa {
 
 	private Integer id;
@@ -61,6 +63,10 @@ public class Pessoa {
 
 	public void setIdade(Integer idade) {
 		this.idade = idade;
+	}
+
+	public boolean isValida() {
+		return Strings.isNotBlank(getNome()) && Strings.isNotBlank(getEmail()) && getDtNascimento() != null;
 	}
 
 }
