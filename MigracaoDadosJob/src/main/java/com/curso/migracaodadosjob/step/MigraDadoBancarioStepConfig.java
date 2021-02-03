@@ -23,7 +23,7 @@ public class MigraDadoBancarioStepConfig {
 		 
 		 return stepBuilderFactory
 				 .get("migraDadoBancarioStep")
-				 .<DadoBancario, DadoBancario> chunk(1)
+				 .<DadoBancario, DadoBancario> chunk(1000)
 				 .reader(arquivoDadoBancarioReader)
 				 .writer(bancoDadoBancarioWriter)
 				 .build();

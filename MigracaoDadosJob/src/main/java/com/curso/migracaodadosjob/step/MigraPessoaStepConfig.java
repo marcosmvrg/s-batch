@@ -25,7 +25,7 @@ public class MigraPessoaStepConfig {
 		 
 		 return stepBuilderFactory
 				 .get("migraPessoaStep")
-				 .<Pessoa, Pessoa> chunk(1)
+				 .<Pessoa, Pessoa> chunk(1000)
 				 .reader(arquivoPessoaReader)
 				 .writer(pessoaClassifierWriter)
 				 .stream(arquivoPessoaInvalidaWriter)
