@@ -1,6 +1,5 @@
 package com.curso.faturacartaocredito.dominio;
 
-import java.math.BigDecimal;
 import java.util.Date;
 
 public class Transacao {
@@ -8,14 +7,14 @@ public class Transacao {
 	private Integer id;
 	private CartaoCredito cartaoCredito;
 	private String descricao;
-	private BigDecimal valor;
+	private Double valor;
 	private Date dtTransacao;
 
 	public Transacao() {
 		super();
 	}
 
-	public Transacao(Integer id, CartaoCredito cartaoCredito, String descricao, BigDecimal valor, Date dtTransacao) {
+	public Transacao(Integer id, CartaoCredito cartaoCredito, String descricao, Double valor, Date dtTransacao) {
 		super();
 		this.id = id;
 		this.cartaoCredito = cartaoCredito;
@@ -48,11 +47,11 @@ public class Transacao {
 		this.descricao = descricao;
 	}
 
-	public BigDecimal getValor() {
+	public Double getValor() {
 		return valor;
 	}
 
-	public void setValor(BigDecimal valor) {
+	public void setValor(Double valor) {
 		this.valor = valor;
 	}
 

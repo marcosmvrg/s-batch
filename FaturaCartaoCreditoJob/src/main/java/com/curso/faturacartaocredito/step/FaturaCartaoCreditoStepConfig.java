@@ -12,6 +12,7 @@ import org.springframework.context.annotation.Configuration;
 import com.curso.faturacartaocredito.dominio.FaturaCartaoCredito;
 import com.curso.faturacartaocredito.dominio.Transacao;
 import com.curso.faturacartaocredito.reader.FaturaCartaoCreditoReader;
+import com.curso.faturacartaocredito.writer.TotalTransacoesFooterCallback;
 
 @Configuration
 public class FaturaCartaoCreditoStepConfig {
@@ -23,14 +24,16 @@ public class FaturaCartaoCreditoStepConfig {
 	public Step faturaCartaoCreditoStep(
 			ItemStreamReader<Transacao> lerTransacoesReader,
 			ItemProcessor<FaturaCartaoCredito, FaturaCartaoCredito> carregaDadoClienteProcessor,
-			ItemWriter<FaturaCartaoCredito> escreverFaturaCartaoCredito) {
+			ItemWriter<FaturaCartaoCredito> arquivosFaturaCartaoCredito,
+			TotalTransacoesFooterCallback listener) {
 		
 		return stepBuilderFactory
 				.get("faturaCartaoCreditoStep")
 				.<FaturaCartaoCredito, FaturaCartaoCredito>chunk(1)
 				.reader(new FaturaCartaoCreditoReader(lerTransacoesReader))
 				.processor(carregaDadoClienteProcessor)
-				.writer(escreverFaturaCartaoCredito)
+				.writer(arquivosFaturaCartaoCredito)
+				.listener(listener)
 				.build();
 	}
 }
